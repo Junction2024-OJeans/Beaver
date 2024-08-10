@@ -13,6 +13,9 @@ struct ReportView: View {
     @State private var centerCoordinate: CLLocationCoordinate2D = .init()
     @State private var position: MapCameraPosition
     @State private var showingReportSheet = false
+    @State private var showingAlert = false
+    @State private var selectedDangerLevel = 0
+    @State private var isAbleClosed = false
     @Binding var coordinates: Coordinates?
     
     init(coordinates: Binding<Coordinates?>) {
@@ -39,7 +42,7 @@ struct ReportView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
-
+                
                 bottomSubmitButton
                     .padding(.bottom, 250)
             }
@@ -54,11 +57,45 @@ struct ReportView: View {
                 showingReportSheet = true
             }
             .sheet(isPresented: $showingReportSheet) {
-                Text("Perceived Risk of Pothole")
-                    .presentationDetents([
-                        .custom(TinyDetent.self),
-                        .medium
-                    ])
+                VStack(alignment: .leading) {
+                    Text("Perceived Risk of Pothole")
+                        .padding(.vertical, 15)
+                        .bold()
+                    
+                    Picker("위험 수준", selection: $selectedDangerLevel) {
+                        Text("\(DangerLevel.low)").tag(0)
+                        Text("\(DangerLevel.medium)").tag(1)
+                        Text("\(DangerLevel.high)").tag(2)
+                    }
+                    .pickerStyle(.segmented)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        // TODO: saveDangerLevel()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Submit")
+                            Spacer()
+                        }
+                    }
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Form submitted!"),
+                              message: Text("Try another thing"),
+                              dismissButton: .default(Text("Done")))
+                    }
+                }
+                .interactiveDismissDisabled(!isAbleClosed)
+                .presentationDetents([
+                    .custom(TinyDetent.self),
+                    .medium
+                ])
+                .padding(20)
             }
         }
     }
@@ -69,7 +106,7 @@ struct TinyDetent: CustomPresentationDetent {
         if context.dynamicTypeSize.isAccessibilitySize {
             return 140
         } else {
-            return 220
+            return 200
         }
     }
 }
