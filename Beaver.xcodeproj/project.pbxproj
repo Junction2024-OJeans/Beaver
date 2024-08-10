@@ -11,6 +11,12 @@
 		8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACC2C67BED600CEEE6F /* ContentView.swift */; };
 		8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D383ACE2C67BED800CEEE6F /* Assets.xcassets */; };
 		8D383AD22C67BED800CEEE6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D383AD12C67BED800CEEE6F /* Preview Assets.xcassets */; };
+		8D383AE02C67C00900CEEE6F /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ADF2C67C00900CEEE6F /* View+.swift */; };
+		8D383AE22C67C01900CEEE6F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE12C67C01900CEEE6F /* Date+.swift */; };
+		8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE32C67C03D00CEEE6F /* BeaverModel.swift */; };
+		8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */; };
+		8D383AEA2C67C7EE00CEEE6F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE92C67C7EE00CEEE6F /* MainView.swift */; };
+		8D383AEC2C67C7F500CEEE6F /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AEB2C67C7F500CEEE6F /* ReportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,13 @@
 		8D383ACC2C67BED600CEEE6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D383ACE2C67BED800CEEE6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D383AD12C67BED800CEEE6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D383AD82C67BF1B00CEEE6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D383ADF2C67C00900CEEE6F /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		8D383AE12C67C01900CEEE6F /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		8D383AE32C67C03D00CEEE6F /* BeaverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaverModel.swift; sourceTree = "<group>"; };
+		8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotHoleDataModel.swift; sourceTree = "<group>"; };
+		8D383AE92C67C7EE00CEEE6F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8D383AEB2C67C7F500CEEE6F /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +64,14 @@
 		8D383AC92C67BED600CEEE6F /* Beaver */ = {
 			isa = PBXGroup;
 			children = (
+				8D383AD82C67BF1B00CEEE6F /* Info.plist */,
 				8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */,
 				8D383ACC2C67BED600CEEE6F /* ContentView.swift */,
-				8D383ACE2C67BED800CEEE6F /* Assets.xcassets */,
+				8D383AD92C67BFA100CEEE6F /* Resources */,
+				8D383ADA2C67BFAA00CEEE6F /* Extensions */,
+				8D383ADB2C67BFAF00CEEE6F /* Model */,
+				8D383ADC2C67BFB300CEEE6F /* Service */,
+				8D383ADE2C67BFBE00CEEE6F /* Scenes */,
 				8D383AD02C67BED800CEEE6F /* Preview Content */,
 			);
 			path = Beaver;
@@ -65,6 +83,64 @@
 				8D383AD12C67BED800CEEE6F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D383AD92C67BFA100CEEE6F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D383ACE2C67BED800CEEE6F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8D383ADA2C67BFAA00CEEE6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8D383ADF2C67C00900CEEE6F /* View+.swift */,
+				8D383AE12C67C01900CEEE6F /* Date+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D383ADB2C67BFAF00CEEE6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D383AE32C67C03D00CEEE6F /* BeaverModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D383ADC2C67BFB300CEEE6F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8D383ADE2C67BFBE00CEEE6F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8D383AE72C67C7B700CEEE6F /* Main */,
+				8D383AE82C67C7DA00CEEE6F /* Report */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8D383AE72C67C7B700CEEE6F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8D383AE92C67C7EE00CEEE6F /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8D383AE82C67C7DA00CEEE6F /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				8D383AEB2C67C7F500CEEE6F /* ReportView.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +214,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */,
+				8D383AEA2C67C7EE00CEEE6F /* MainView.swift in Sources */,
+				8D383AEC2C67C7F500CEEE6F /* ReportView.swift in Sources */,
+				8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */,
+				8D383AE02C67C00900CEEE6F /* View+.swift in Sources */,
 				8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */,
+				8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */,
+				8D383AE22C67C01900CEEE6F /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +357,10 @@
 				DEVELOPMENT_TEAM = 888VRTGCXU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Beaver/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +390,10 @@
 				DEVELOPMENT_TEAM = 888VRTGCXU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Beaver/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

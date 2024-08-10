@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct BeaverModel {
+    // MARK: 샘플 모델 구현
+}

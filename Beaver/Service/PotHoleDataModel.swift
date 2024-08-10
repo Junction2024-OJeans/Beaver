@@ -1,16 +1,27 @@
 //
-//  DataManager.swift
+//  PotHoleDataModel.swift
 //  Beaver
 //
 //  Created by Jia Jang on 8/11/24.
 //
 
 import Foundation
+import SwiftUI
+import CoreLocation
 
-final class DataManager {
-    // MARK: 데이터 관련 코드 입력
+struct PotholeData{
+    var id: String
+    var coordinates: CLLocationCoordinate2D
+    var province: String //"regionname_1"
+    var region: String //"regionname_2"
+    var town: String //"regionname_3"
+    var image: Image?
+    var myDangerLevel: DangerLevel?
+    var averageDangerLevel: DangerLevel?
 }
 
-extension DataManager {
-    // MARK: 데이터 익스텐션 코드 입력
+enum DangerLevel: String{
+    case low = "Low"
+    case medium = "Medium"
+    case high = "High"
 }
