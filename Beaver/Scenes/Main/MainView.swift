@@ -9,7 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MainView: View {
-    @StateObject var locationManager = Location()
+    @StateObject var locationManager = LocationManager()
+    
     @State private var dummyData: [PotholeData] = [
         PotholeData(
             id: "PH001",
@@ -75,7 +76,6 @@ struct MainView: View {
                     Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.low.rawValue)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 30, height: 30)
                 }
             }
         }
