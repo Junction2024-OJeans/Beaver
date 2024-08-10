@@ -30,7 +30,7 @@ struct MainView: View {
                 Map(position: $cameraPosition) {
                     ForEach(potHoleDataManager.hicoPotHoles, id: \.id) { pothole in
                         Annotation("", coordinate: pothole.coordinates) {
-                            Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.low.rawValue)
+                            Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)
                                 .resizable()
                                 .scaledToFit()
                                 .onTapGesture {
@@ -41,16 +41,44 @@ struct MainView: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
-                
-                VStack{
-                    SearchBarView(searchText: $searchText)
-                        .padding(.top, 24)
-                    buttonStack
-                    if showPotholeInfo, let pothole = selectedPothole {
-                        PotholeInfoView(pothole: pothole)
-                            .transition(.move(edge: .bottom))
-                            .animation(.spring(), value: showPotholeInfo)
-                            .padding(.bottom, 20)
+                if warningManager.showAlert{
+                    VStack{
+                        if warningManager.distanceToPotHole <= 30 && warningManager.distanceToPotHole > 20{
+                            Image("alert300")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:361)
+                                .padding(.top, 28)
+                        }else if warningManager.distanceToPotHole <= 20 && warningManager.distanceToPotHole > 10{
+                            Image("alert100")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:361)
+                                .padding(.top, 28)
+                        }
+                        Spacer()
+                        Button{
+                            warningManager.alertMode = false
+                            warningManager.showAlert = false
+                        }label:{
+                            Image("cancelButton")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:364)
+                            
+                        }
+                    }
+                }else{
+                    VStack{
+                        SearchBarView(searchText: $searchText)
+                            .padding(.top, 24)
+                        buttonStack
+                        if showPotholeInfo, let pothole = selectedPothole {
+                            PotholeInfoView(pothole: pothole)
+                                .transition(.move(edge: .bottom))
+                                .animation(.spring(), value: showPotholeInfo)
+                                .padding(.bottom, 20)
+                        }
                     }
                 }
             }
@@ -66,6 +94,7 @@ struct MainView: View {
                     await warningManager.checkNotificationPermission()
                 }
                 locationManager.getLocationPermission()
+                warningManager.setupAudio()
                 potHoleDataManager.loadCSV()
             }
             .onChange(of: locationManager.currentLocation){
@@ -107,6 +136,7 @@ extension MainView{
                     }
                     Button{
                         warningManager.showAlert.toggle()
+                        warningManager.alertMode = true
                     }label:{
                         Image("icon_start")
                             .resizable()

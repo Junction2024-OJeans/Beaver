@@ -15,9 +15,11 @@ struct PotholeInfoView: View {
     
     var body: some View {
         HStack {
-            Image("xffx")
-                .resizable()
-                .frame(width: 171, height: 183)
+            if let image = pothole.image{
+                image
+                    .resizable()
+                    .frame(width: 171, height: 183)
+            }
             VStack(alignment: .leading, spacing: 10) {
                 Text("\(pothole.province) \(pothole.region)")
                     .font(.title3.bold())

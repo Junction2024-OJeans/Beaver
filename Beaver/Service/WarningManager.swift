@@ -15,6 +15,7 @@ class WarningManager: ObservableObject{
     
     @Published var showAlert = false
     @Published var distanceToPotHole: Double = .infinity
+    @Published var alertMode = false
     
     internal let center = UNUserNotificationCenter.current()
     internal let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
