@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct PotholeData{
+struct PotholeData: Identifiable {
     var id: String
     var coordinates: CLLocationCoordinate2D
     var province: String //"regionname_1"
@@ -20,8 +20,9 @@ struct PotholeData{
     var averageDangerLevel: DangerLevel?
 }
 
-enum DangerLevel: String{
-    case low = "Low"
-    case medium = "Medium"
-    case high = "High"
+enum DangerLevel: String {
+    case low
+    case medium
+    case high
 }
+
