@@ -31,7 +31,7 @@ struct ReportView: View {
     }
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             ZStack {
                 Map(position: $position)
                     .onMapCameraChange { context in
@@ -48,9 +48,15 @@ struct ReportView: View {
             }
             .navigationTitle(Text("Report potholes"))
             .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Image(systemName: "chevron.left")
+                    Button{
+                        print("dismiss")
+                        dismiss()
+                    }label:{
+                        Image(systemName: "chevron.left")
+                    }
                 }
             }
             .onAppear {
@@ -97,7 +103,7 @@ struct ReportView: View {
                 ])
                 .padding(20)
             }
-        }
+//        }
     }
 }
 

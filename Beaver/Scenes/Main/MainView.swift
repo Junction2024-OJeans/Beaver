@@ -10,6 +10,11 @@ import MapKit
 
 struct MainView: View {
     @StateObject var locationManager = LocationManager()
+    @StateObject var warningManager = WarningManager()
+    @StateObject var potHoleDataManager = PotHoleDataManager()
+    
+    @State var searchText = ""
+    @State var coordinates: Coordinates?
     
     @State private var dummyData: [PotholeData] = [
         PotholeData(
@@ -70,16 +75,95 @@ struct MainView: View {
     ))
     
     var body: some View {
-        Map(position: $cameraPosition) {
-            ForEach(dummyData, id: \.id) { pothole in
-                Annotation("", coordinate: pothole.coordinates) {
-                    Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.low.rawValue)
-                        .resizable()
-                        .scaledToFit()
+        NavigationStack {
+            ZStack{
+                Map(position: $cameraPosition) {
+                    ForEach(dummyData, id: \.id) { pothole in
+                        Annotation("", coordinate: pothole.coordinates) {
+                            Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.low.rawValue)
+                                .resizable()
+                                .scaledToFit()
+                        }
+                    }
+                }
+                .edgesIgnoringSafeArea(.all)
+                VStack{
+                    SearchBarView(searchText: $searchText)
+                        .padding(.top, 24)
+                    buttonStack
+                }
+            }
+            .toolbar(.hidden)
+            .navigationDestination(for: String.self){ destination in
+                if destination == "report"{
+                    ReportView(coordinates: $coordinates)
+                }
+            }
+            .onAppear {
+                print("auth")
+                Task{
+                    await warningManager.checkNotificationPermission()
+                }
+                locationManager.getLocationPermission()
+                potHoleDataManager.loadCSV()
+            }
+            .onChange(of: locationManager.currentLocation){
+                if let currentLocation = locationManager.currentLocation{
+                    for potholeCoordinate in potHoleDataManager.hicoPotHoles {
+                        warningManager.distanceToPotHole = CLLocationCoordinate2D.distance(from: currentLocation, to: potholeCoordinate.coordinates)
+                        print("distance: \(warningManager.distanceToPotHole)")
+                        if warningManager.showAlert{
+                            if warningManager.distanceToPotHole <= 30 && warningManager.distanceToPotHole > 20{
+                                warningManager.playWarningAudio(warningType: .threeHundred)
+                                Task{
+                                    await warningManager.notifyUser(title: "Beaver", content: WarningType.threeHundred.backgroundWarningContent)
+                                }
+                            }else if warningManager.distanceToPotHole <= 20 && warningManager.distanceToPotHole > 10{
+                                warningManager.playWarningAudio(warningType: .hundred)
+                                Task{
+                                    await warningManager.notifyUser(title: "Beaver", content: WarningType.hundred.backgroundWarningContent)
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)
+    }
+}
+
+extension MainView{
+    var buttonStack: some View{
+        VStack(alignment: .trailing){
+            HStack{
+                Spacer()
+                VStack{
+                    NavigationLink(value: "report"){
+                        Image("icon_report")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 65)
+                    }
+                    Button{
+                        warningManager.showAlert.toggle()
+                    }label:{
+                        Image("icon_start")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 65)
+                    }
+                    Spacer()
+                    Button{
+                        //다시 현재 위치로
+                    }label:{
+                        Image("icon_currentLocation")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 65)
+                    }
+                }.padding(.trailing, 24)
+            }
+        }
     }
 }
 
