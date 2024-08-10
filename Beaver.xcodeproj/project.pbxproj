@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B78217D2C67D488000BA289 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78217C2C67D488000BA289 /* LocationManager.swift */; };
 		6B78217F2C67D502000BA289 /* CLLocationCoordinate2D+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78217E2C67D502000BA289 /* CLLocationCoordinate2D+.swift */; };
+		6B7821832C67D980000BA289 /* WarningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7821822C67D980000BA289 /* WarningManager.swift */; };
 		8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */; };
 		8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACC2C67BED600CEEE6F /* ContentView.swift */; };
 		8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D383ACE2C67BED800CEEE6F /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		6B78217C2C67D488000BA289 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6B78217E2C67D502000BA289 /* CLLocationCoordinate2D+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+.swift"; sourceTree = "<group>"; };
+		6B7821822C67D980000BA289 /* WarningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningManager.swift; sourceTree = "<group>"; };
 		8D383AC72C67BED600CEEE6F /* Beaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaverApp.swift; sourceTree = "<group>"; };
 		8D383ACC2C67BED600CEEE6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				B5254A392C67CBA40078C73D /* DataManager.swift */,
 				6B78217C2C67D488000BA289 /* LocationManager.swift */,
+				6B7821822C67D980000BA289 /* WarningManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */,
 				8D383AEA2C67C7EE00CEEE6F /* MainView.swift in Sources */,
 				6B78217D2C67D488000BA289 /* LocationManager.swift in Sources */,
+				6B7821832C67D980000BA289 /* WarningManager.swift in Sources */,
 				8D383AEC2C67C7F500CEEE6F /* ReportView.swift in Sources */,
 				8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */,
 				8D383AE02C67C00900CEEE6F /* View+.swift in Sources */,

@@ -9,12 +9,12 @@ import Foundation
 import CoreLocation
 
 
-class Location: NSObject, CLLocationManagerDelegate, ObservableObject{
-    var manager = CLLocationManager()
+class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject{
+    private var manager = CLLocationManager()
     @Published var currentLocation: CLLocationCoordinate2D?
     @Published var accuracy: Double = 0
     
-    func getLocationPermission(){
+    func getLocationPermission(){ //앱 실행 할때 필요
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         manager.startUpdatingLocation()
