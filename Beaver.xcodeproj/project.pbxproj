@@ -10,6 +10,8 @@
 		6B78217D2C67D488000BA289 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78217C2C67D488000BA289 /* LocationManager.swift */; };
 		6B78217F2C67D502000BA289 /* CLLocationCoordinate2D+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78217E2C67D502000BA289 /* CLLocationCoordinate2D+.swift */; };
 		6B7821832C67D980000BA289 /* WarningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7821822C67D980000BA289 /* WarningManager.swift */; };
+		6BA06E352C67E25000C6C281 /* potholeAlert300.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6BA06E332C67E25000C6C281 /* potholeAlert300.mp3 */; };
+		6BA06E362C67E25000C6C281 /* potholeAlert100.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6BA06E342C67E25000C6C281 /* potholeAlert100.mp3 */; };
 		8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */; };
 		8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACC2C67BED600CEEE6F /* ContentView.swift */; };
 		8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D383ACE2C67BED800CEEE6F /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		6B78217C2C67D488000BA289 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6B78217E2C67D502000BA289 /* CLLocationCoordinate2D+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+.swift"; sourceTree = "<group>"; };
 		6B7821822C67D980000BA289 /* WarningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningManager.swift; sourceTree = "<group>"; };
+		6BA06E332C67E25000C6C281 /* potholeAlert300.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = potholeAlert300.mp3; sourceTree = "<group>"; };
+		6BA06E342C67E25000C6C281 /* potholeAlert100.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = potholeAlert100.mp3; sourceTree = "<group>"; };
 		8D383AC72C67BED600CEEE6F /* Beaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaverApp.swift; sourceTree = "<group>"; };
 		8D383ACC2C67BED600CEEE6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BA06E322C67E23B00C6C281 /* AudioAssets */ = {
+			isa = PBXGroup;
+			children = (
+				6BA06E342C67E25000C6C281 /* potholeAlert100.mp3 */,
+				6BA06E332C67E25000C6C281 /* potholeAlert300.mp3 */,
+			);
+			path = AudioAssets;
+			sourceTree = "<group>";
+		};
 		8D383ABE2C67BED600CEEE6F = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		8D383AD92C67BFA100CEEE6F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6BA06E322C67E23B00C6C281 /* AudioAssets */,
 				8D383ACE2C67BED800CEEE6F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -231,6 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D383AD22C67BED800CEEE6F /* Preview Assets.xcassets in Resources */,
+				6BA06E362C67E25000C6C281 /* potholeAlert100.mp3 in Resources */,
+				6BA06E352C67E25000C6C281 /* potholeAlert300.mp3 in Resources */,
 				8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */,
 				8D383AF72C67DAFB00CEEE6F /* GoogleService-Info.plist in Resources */,
 			);
