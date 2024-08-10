@@ -20,6 +20,7 @@
 		8D383AF72C67DAFB00CEEE6F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D383AF62C67DAFB00CEEE6F /* GoogleService-Info.plist */; };
 		8D383AFA2C67DB9500CEEE6F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8D383AF92C67DB9500CEEE6F /* FirebaseAnalytics */; };
 		8D383AFC2C67DB9500CEEE6F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8D383AFB2C67DB9500CEEE6F /* FirebaseDatabase */; };
+		8D383B002C67DC9A00CEEE6F /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */; };
 		B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A392C67CBA40078C73D /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		8D383AE92C67C7EE00CEEE6F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8D383AEB2C67C7F500CEEE6F /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		8D383AF62C67DAFB00CEEE6F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		B5254A392C67CBA40078C73D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B5254A392C67CBA40078C73D /* DataManager.swift */,
+				8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */,
 				8D383AE02C67C00900CEEE6F /* View+.swift in Sources */,
 				8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */,
+				8D383B002C67DC9A00CEEE6F /* FirebaseDataManager.swift in Sources */,
 				8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */,
 				B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */,
 				8D383AE22C67C01900CEEE6F /* Date+.swift in Sources */,
