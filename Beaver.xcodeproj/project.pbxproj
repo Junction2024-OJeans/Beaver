@@ -17,7 +17,7 @@
 		8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */; };
 		8D383AEA2C67C7EE00CEEE6F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE92C67C7EE00CEEE6F /* MainView.swift */; };
 		8D383AEC2C67C7F500CEEE6F /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AEB2C67C7F500CEEE6F /* ReportView.swift */; };
-		B5254A372C67CB510078C73D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A362C67CB510078C73D /* DataManager.swift */; };
+		B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A392C67CBA40078C73D /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotHoleDataModel.swift; sourceTree = "<group>"; };
 		8D383AE92C67C7EE00CEEE6F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8D383AEB2C67C7F500CEEE6F /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
-		B5254A362C67CB510078C73D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = "../../../../Desktop/ADA/Junction2024/kakaoMapTest_nil처리/kakaoMapTest/DataManager.swift"; sourceTree = "<group>"; };
+		B5254A392C67CBA40078C73D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 				8D383AD92C67BFA100CEEE6F /* Resources */,
 				8D383ADA2C67BFAA00CEEE6F /* Extensions */,
 				8D383ADB2C67BFAF00CEEE6F /* Model */,
-				8D383ADC2C67BFB300CEEE6F /* Service */,
+				B5254A382C67CB980078C73D /* Service */,
 				8D383ADE2C67BFBE00CEEE6F /* Scenes */,
 				8D383AD02C67BED800CEEE6F /* Preview Content */,
 			);
@@ -113,14 +113,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8D383ADC2C67BFB300CEEE6F /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				B5254A362C67CB510078C73D /* DataManager.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		8D383ADE2C67BFBE00CEEE6F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +136,14 @@
 				8D383AEB2C67C7F500CEEE6F /* ReportView.swift */,
 			);
 			path = Report;
+			sourceTree = "<group>";
+		};
+		B5254A382C67CB980078C73D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B5254A392C67CBA40078C73D /* DataManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +223,7 @@
 				8D383AE02C67C00900CEEE6F /* View+.swift in Sources */,
 				8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */,
 				8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */,
-				B5254A372C67CB510078C73D /* DataManager.swift in Sources */,
+				B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */,
 				8D383AE22C67C01900CEEE6F /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
