@@ -31,6 +31,7 @@
 		8D383B002C67DC9A00CEEE6F /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */; };
 		B50058E52C6811850042D7EE /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50058E32C6811850042D7EE /* ToggleButton.swift */; };
 		B50058E62C6811850042D7EE /* PotholeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50058E42C6811850042D7EE /* PotholeInfoView.swift */; };
+		B5203DE12C681FC10032512E /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5203DE02C681FC10032512E /* SearchBarView.swift */; };
 		B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A392C67CBA40078C73D /* DataManager.swift */; };
 		B5254A3E2C67E3570078C73D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A3D2C67E3570078C73D /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		B50058E32C6811850042D7EE /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		B50058E42C6811850042D7EE /* PotholeInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotholeInfoView.swift; sourceTree = "<group>"; };
+		B5203DE02C681FC10032512E /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarView.swift; path = ../../../../../Downloads/SearchBarView.swift; sourceTree = "<group>"; };
 		B5254A392C67CBA40078C73D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B5254A3D2C67E3570078C73D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,7 @@
 		8D383AE72C67C7B700CEEE6F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B5203DE02C681FC10032512E /* SearchBarView.swift */,
 				8D383AE92C67C7EE00CEEE6F /* MainView.swift */,
 				B50058E42C6811850042D7EE /* PotholeInfoView.swift */,
 				B50058E32C6811850042D7EE /* ToggleButton.swift */,
@@ -297,6 +300,7 @@
 				8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */,
 				8D383AE02C67C00900CEEE6F /* View+.swift in Sources */,
 				8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */,
+				B5203DE12C681FC10032512E /* SearchBarView.swift in Sources */,
 				8D383B002C67DC9A00CEEE6F /* FirebaseDataManager.swift in Sources */,
 				8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */,
 				B50058E52C6811850042D7EE /* ToggleButton.swift in Sources */,
