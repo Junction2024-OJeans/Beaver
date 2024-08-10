@@ -12,7 +12,7 @@ import CoreLocation
 
 class PotHoleDataManager: ObservableObject {
     var pohangPotHoles = [PotholeData]()
-    let hicoPotHoles =  [PotholeData(id: "river-side", coordinates: CLLocationCoordinate2D(latitude: 35.838127, longitude: 129.287374), province: "경상북도", region: "경주시", town: "신평동"), PotholeData(id: "parking-side", coordinates: CLLocationCoordinate2D(latitude: 35.839078, longitude: 129.288206), province: "경상북도", region: "경주시", town: "신평동")]
+    let hicoPotHoles =  [PotholeData(id: "river-side", coordinates: CLLocationCoordinate2D(latitude: 35.838127, longitude: 129.287374), province: "경상북도", region: "경주시", town: "신평동", image: Image("river")), PotholeData(id: "parking-side", coordinates: CLLocationCoordinate2D(latitude: 35.839078, longitude: 129.288206), province: "경상북도", region: "경주시", town: "신평동", image: Image("carpark"))]
     
     func loadCSV(){ // 이 친구도 초기화할때 한번 불러 주세요 ㅎ
         do {
