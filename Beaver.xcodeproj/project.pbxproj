@@ -12,6 +12,9 @@
 		6B7821832C67D980000BA289 /* WarningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7821822C67D980000BA289 /* WarningManager.swift */; };
 		6BA06E352C67E25000C6C281 /* potholeAlert300.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6BA06E332C67E25000C6C281 /* potholeAlert300.mp3 */; };
 		6BA06E362C67E25000C6C281 /* potholeAlert100.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6BA06E342C67E25000C6C281 /* potholeAlert100.mp3 */; };
+		6BA06E392C67E5B600C6C281 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 6BA06E382C67E5B600C6C281 /* SwiftCSV */; };
+		6BA06E3B2C67E5D800C6C281 /* PotHoleDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA06E3A2C67E5D800C6C281 /* PotHoleDataManager.swift */; };
+		6BA06E3E2C67E67400C6C281 /* PohangPotholeData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6BA06E3D2C67E67400C6C281 /* PohangPotholeData.csv */; };
 		8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */; };
 		8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACC2C67BED600CEEE6F /* ContentView.swift */; };
 		8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D383ACE2C67BED800CEEE6F /* Assets.xcassets */; };
@@ -35,6 +38,8 @@
 		6B7821822C67D980000BA289 /* WarningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningManager.swift; sourceTree = "<group>"; };
 		6BA06E332C67E25000C6C281 /* potholeAlert300.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = potholeAlert300.mp3; sourceTree = "<group>"; };
 		6BA06E342C67E25000C6C281 /* potholeAlert100.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = potholeAlert100.mp3; sourceTree = "<group>"; };
+		6BA06E3A2C67E5D800C6C281 /* PotHoleDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotHoleDataManager.swift; sourceTree = "<group>"; };
+		6BA06E3D2C67E67400C6C281 /* PohangPotholeData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PohangPotholeData.csv; sourceTree = "<group>"; };
 		8D383AC72C67BED600CEEE6F /* Beaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaverApp.swift; sourceTree = "<group>"; };
 		8D383ACC2C67BED600CEEE6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA06E392C67E5B600C6C281 /* SwiftCSV in Frameworks */,
 				8D383AFC2C67DB9500CEEE6F /* FirebaseDatabase in Frameworks */,
 				8D383AFA2C67DB9500CEEE6F /* FirebaseAnalytics in Frameworks */,
 			);
@@ -72,6 +78,14 @@
 				6BA06E332C67E25000C6C281 /* potholeAlert300.mp3 */,
 			);
 			path = AudioAssets;
+			sourceTree = "<group>";
+		};
+		6BA06E3C2C67E65500C6C281 /* PotHoleData */ = {
+			isa = PBXGroup;
+			children = (
+				6BA06E3D2C67E67400C6C281 /* PohangPotholeData.csv */,
+			);
+			path = PotHoleData;
 			sourceTree = "<group>";
 		};
 		8D383ABE2C67BED600CEEE6F = {
@@ -118,6 +132,7 @@
 		8D383AD92C67BFA100CEEE6F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6BA06E3C2C67E65500C6C281 /* PotHoleData */,
 				6BA06E322C67E23B00C6C281 /* AudioAssets */,
 				8D383ACE2C67BED800CEEE6F /* Assets.xcassets */,
 			);
@@ -175,6 +190,7 @@
 				8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */,
 				6B78217C2C67D488000BA289 /* LocationManager.swift */,
 				6B7821822C67D980000BA289 /* WarningManager.swift */,
+				6BA06E3A2C67E5D800C6C281 /* PotHoleDataManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -198,6 +214,7 @@
 			packageProductDependencies = (
 				8D383AF92C67DB9500CEEE6F /* FirebaseAnalytics */,
 				8D383AFB2C67DB9500CEEE6F /* FirebaseDatabase */,
+				6BA06E382C67E5B600C6C281 /* SwiftCSV */,
 			);
 			productName = Beaver;
 			productReference = 8D383AC72C67BED600CEEE6F /* Beaver.app */;
@@ -229,6 +246,7 @@
 			mainGroup = 8D383ABE2C67BED600CEEE6F;
 			packageReferences = (
 				8D383AF82C67DB9500CEEE6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6BA06E372C67E5B500C6C281 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 			);
 			productRefGroup = 8D383AC82C67BED600CEEE6F /* Products */;
 			projectDirPath = "";
@@ -247,6 +265,7 @@
 				8D383AD22C67BED800CEEE6F /* Preview Assets.xcassets in Resources */,
 				6BA06E362C67E25000C6C281 /* potholeAlert100.mp3 in Resources */,
 				6BA06E352C67E25000C6C281 /* potholeAlert300.mp3 in Resources */,
+				6BA06E3E2C67E67400C6C281 /* PohangPotholeData.csv in Resources */,
 				8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */,
 				8D383AF72C67DAFB00CEEE6F /* GoogleService-Info.plist in Resources */,
 			);
@@ -272,6 +291,7 @@
 				8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */,
 				B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */,
 				8D383AE22C67C01900CEEE6F /* Date+.swift in Sources */,
+				6BA06E3B2C67E5D800C6C281 /* PotHoleDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +507,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6BA06E372C67E5B500C6C281 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 		8D383AF82C67DB9500CEEE6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -498,6 +526,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6BA06E382C67E5B600C6C281 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BA06E372C67E5B500C6C281 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
 		8D383AF92C67DB9500CEEE6F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8D383AF82C67DB9500CEEE6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

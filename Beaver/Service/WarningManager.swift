@@ -9,9 +9,12 @@ import Foundation
 import AVFoundation
 import UserNotifications
 import SwiftUI
+import CoreLocation
 
 class WarningManager: ObservableObject{
-    @EnvironmentObject var locationManager: LocationManager
+    
+    @Published var showAlert = false
+    @Published var distanceToPotHole: Double = .infinity
     
     internal let center = UNUserNotificationCenter.current()
     internal let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
@@ -77,6 +80,10 @@ extension WarningManager: AudioWarning {
     }
 }
 
+protocol CheckDistanceAndWarn {
+    func setUpWarnings() async
+}
+
 
 protocol AudioWarning {
     var player100: AVAudioPlayer? {get set}
@@ -94,4 +101,13 @@ protocol BackgroundNotification {
 
 enum WarningType{
     case hundred, threeHundred
+    
+    var backgroundWarningContent: String{
+        switch self{
+        case .hundred:
+            return "Pothole just 100m ahead! Watch Out!"
+        case .threeHundred:
+            return "Pothole ahead in 300m! Stay alert!"
+        }
+    }
 }
