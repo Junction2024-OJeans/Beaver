@@ -15,7 +15,8 @@ class WarningManager: ObservableObject{
     
     internal let center = UNUserNotificationCenter.current()
     internal let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
-    var player: AVAudioPlayer?
+    var player100: AVAudioPlayer?
+    var player300: AVAudioPlayer?
 }
 
 extension WarningManager: BackgroundNotification {
@@ -43,7 +44,12 @@ extension WarningManager: BackgroundNotification {
 
 extension WarningManager: AudioWarning {
     func setupAudio(){ //이 친구는 알림 시작 버튼 누를때 사용 필요
-        guard let url = Bundle.main.url(forResource: "tempWarningAudio2", withExtension: "wav") else {
+        guard let url100 = Bundle.main.url(forResource: "potholeAlert100", withExtension: "mp3") else {
+            print("item not avail")
+            return
+        }
+        
+        guard let url300 = Bundle.main.url(forResource: "potholeAlert300", withExtension: "mp3") else {
             print("item not avail")
             return
         }
@@ -52,23 +58,31 @@ extension WarningManager: AudioWarning {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             
-            player = try AVAudioPlayer(contentsOf: url)
+            player100 = try AVAudioPlayer(contentsOf: url100)
+            player300 = try AVAudioPlayer(contentsOf: url300)
         }catch{
             print("error: \(error)")
         }
         
     }
-    func playWarningAudio(){
-        guard let player = player else {return}
-        player.play()
+    func playWarningAudio(warningType: WarningType){
+        if warningType == .hundred{
+            guard let player = player100 else {return}
+            player.play()
+        }else if warningType == .threeHundred{
+            guard let player = player300 else {return}
+            player.play()
+        }
+        
     }
 }
 
 
 protocol AudioWarning {
-    var player: AVAudioPlayer? {get set}
+    var player100: AVAudioPlayer? {get set}
+    var player300: AVAudioPlayer? {get set}
     func setupAudio()
-    func playWarningAudio()
+    func playWarningAudio(warningType: WarningType)
 }
 
 protocol BackgroundNotification {
@@ -76,4 +90,8 @@ protocol BackgroundNotification {
     var trigger: UNTimeIntervalNotificationTrigger {get}
     func checkNotificationPermission() async
     func notifyUser(title: String, content: String) async
+}
+
+enum WarningType{
+    case hundred, threeHundred
 }
