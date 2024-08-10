@@ -28,7 +28,7 @@ struct ToggleButton: View {
                     .font(.caption2)
                     .foregroundStyle(.black)
             }
-            .frame(width: 58)
+            .frame(width: 60)
         }
     }
 }
