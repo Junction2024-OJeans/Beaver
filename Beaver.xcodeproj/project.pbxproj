@@ -17,6 +17,7 @@
 		8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */; };
 		8D383AEA2C67C7EE00CEEE6F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AE92C67C7EE00CEEE6F /* MainView.swift */; };
 		8D383AEC2C67C7F500CEEE6F /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AEB2C67C7F500CEEE6F /* ReportView.swift */; };
+		8D383AF72C67DAFB00CEEE6F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D383AF62C67DAFB00CEEE6F /* GoogleService-Info.plist */; };
 		B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A392C67CBA40078C73D /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		8D383AE52C67C05C00CEEE6F /* PotHoleDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotHoleDataModel.swift; sourceTree = "<group>"; };
 		8D383AE92C67C7EE00CEEE6F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8D383AEB2C67C7F500CEEE6F /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		8D383AF62C67DAFB00CEEE6F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5254A392C67CBA40078C73D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 		8D383AC92C67BED600CEEE6F /* Beaver */ = {
 			isa = PBXGroup;
 			children = (
+				8D383AF62C67DAFB00CEEE6F /* GoogleService-Info.plist */,
 				8D383AD82C67BF1B00CEEE6F /* Info.plist */,
 				8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */,
 				8D383ACC2C67BED600CEEE6F /* ContentView.swift */,
@@ -206,6 +209,7 @@
 			files = (
 				8D383AD22C67BED800CEEE6F /* Preview Assets.xcassets in Resources */,
 				8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */,
+				8D383AF72C67DAFB00CEEE6F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
