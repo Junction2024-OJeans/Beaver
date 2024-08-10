@@ -20,7 +20,7 @@ struct PotholeData: Identifiable {
     var averageDangerLevel: DangerLevel?
 }
 
-enum DangerLevel: String, CaseIterable {
+enum DangerLevel: String, CaseIterable, Codable {
     case low = "Dangerous"
     case medium = "Caution"
     case high = "Relax"

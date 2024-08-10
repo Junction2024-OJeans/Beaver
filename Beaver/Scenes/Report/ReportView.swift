@@ -16,6 +16,8 @@ struct ReportView: View {
     @State private var showingAlert = false
     @State private var selectedDangerLevel = 0
     @State private var isAbleClosed = false
+    @State private var dangerLevel: DangerLevel
+    @State private var navigateToCompleteView: Bool = false
     @Binding var coordinates: Coordinates?
     
     init(coordinates: Binding<Coordinates?>) {
@@ -28,75 +30,62 @@ struct ReportView: View {
         }
         
         self._coordinates = coordinates
+        self._dangerLevel = State(initialValue: .low)
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Map(position: $position)
-                    .onMapCameraChange { context in
-                        centerCoordinate = context.camera.centerCoordinate
-                    }
-                
-                Image(systemName: "mappin.and.ellipse")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50)
-                
-                bottomSubmitButton
-                    .padding(.bottom, 250)
-            }
-            .navigationTitle(Text("Report potholes"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(systemName: "chevron.left")
+        ZStack {
+            Map(position: $position)
+                .onMapCameraChange { context in
+                    centerCoordinate = context.camera.centerCoordinate
                 }
+            
+            Image(systemName: "mappin.and.ellipse")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50)
+        }
+        .navigationTitle(Text("Report potholes"))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $navigateToCompleteView) {
+            ReportCompleteView()
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Image(systemName: "chevron.left")
             }
-            .onAppear {
-                showingReportSheet = true
-            }
-            .sheet(isPresented: $showingReportSheet) {
-                VStack(alignment: .leading) {
-                    Text("Perceived Risk of Pothole")
-                        .padding(.vertical, 15)
-                        .bold()
-                    
-                    Picker("위험 수준", selection: $selectedDangerLevel) {
-                        Text("\(DangerLevel.low)").tag(0)
-                        Text("\(DangerLevel.medium)").tag(1)
-                        Text("\(DangerLevel.high)").tag(2)
-                    }
-                    .pickerStyle(.segmented)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        // TODO: saveDangerLevel()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Submit")
-                            Spacer()
-                        }
-                    }
-                    .foregroundColor(.white)
-                    .padding(10)
-                    .background(Color.accentColor)
-                    .cornerRadius(8)
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Form submitted!"),
-                              message: Text("Try another thing"),
-                              dismissButton: .default(Text("Done")))
-                    }
-                }
-                .interactiveDismissDisabled(!isAbleClosed)
-                .presentationDetents([
-                    .custom(TinyDetent.self),
-                    .medium
-                ])
-                .padding(20)
-            }
+        }
+        .onAppear {
+            showingReportSheet = true
+        }
+        .sheet(isPresented: $showingReportSheet) {
+            bottomSmallSheet
+        }
+    }
+    
+    private func saveDangerLevel() {
+        let selectedLevel: DangerLevel
+        switch selectedDangerLevel {
+        case 0:
+            selectedLevel = .low
+        case 1:
+            selectedLevel = .medium
+        case 2:
+            selectedLevel = .high
+        default:
+            selectedLevel = .low
+        }
+        
+        let reportInfo = ReportInfo(
+            coordinates: coordinates ?? Coordinates(latitude: 0, longitude: 0),
+            dangerLevel: selectedLevel
+        )
+        
+        do {
+            try FirebaseDataManager.shared.updateData(reportInfo, type: .report, id: reportInfo.id)
+            print("업데이트 성공")
+        } catch {
+            print("업데이트 실패: \(error.localizedDescription)")
         }
     }
 }
@@ -111,25 +100,57 @@ struct TinyDetent: CustomPresentationDetent {
     }
 }
 
-
 private extension ReportView {
-    var bottomSubmitButton: some View {
-        VStack {
+    var bottomSmallSheet: some View {
+        VStack(alignment: .leading) {
+            Text("Perceived Risk of Pothole")
+                .padding(.vertical, 15)
+                .bold()
+            
+            Picker("위험 수준", selection: $selectedDangerLevel) {
+                Text("\(DangerLevel.low)").tag(0)
+                Text("\(DangerLevel.medium)").tag(1)
+                Text("\(DangerLevel.high)").tag(2)
+            }
+            .pickerStyle(.segmented)
+            
             Spacer()
-            Button("Select the location") {
+            
+            Button(action: {
                 coordinates = .init(
                     latitude: centerCoordinate.latitude,
                     longitude: centerCoordinate.longitude
                 )
                 
-                dismiss()
+                saveDangerLevel()
+                
+                navigateToCompleteView = true
+            }) {
+                HStack {
+                    Spacer()
+                    Text("Submit")
+                    Spacer()
+                }
             }
-            .frame(maxWidth: .infinity, maxHeight: 48)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .bold()
-            .zIndex(2)
+            .foregroundColor(.white)
+            .padding(10)
+            .background(Color.accentColor)
+            .cornerRadius(8)
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Form submitted!"),
+                      message: Text("Try another thing"),
+                      dismissButton: .default(Text("Done")))
+            }
         }
-        .padding(.horizontal)
+        .interactiveDismissDisabled(!isAbleClosed)
+        .presentationDetents([
+            .custom(TinyDetent.self),
+            .medium
+        ])
+        .presentationBackgroundInteraction(
+            .enabled(upThrough: .medium)
+        )
+        .padding(20)
     }
 }
 
@@ -151,6 +172,7 @@ extension CLLocationCoordinate2D {
         longitude: 129.2879123861327
     )
 }
+
 
 #Preview {
     ReportView(coordinates: .constant(Coordinates(latitude: 0, longitude: 0)))

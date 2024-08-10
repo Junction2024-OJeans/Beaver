@@ -20,10 +20,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct BeaverApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @State var coordinates: Coordinates?
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+//            MainView()
+            ReportView(coordinates: $coordinates)
         }
     }
 }
