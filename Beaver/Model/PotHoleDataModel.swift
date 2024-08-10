@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct PotholeData: Identifiable, Hashable {
+struct PotholeData: Identifiable {
     var id: String
     var coordinates: CLLocationCoordinate2D
     var province: String //"regionname_1"
@@ -18,15 +18,11 @@ struct PotholeData: Identifiable, Hashable {
     var image: Image?
     var myDangerLevel: DangerLevel?
     var averageDangerLevel: DangerLevel?
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
 }
 
-enum DangerLevel: String{
-    case low = "Low"
-    case medium = "Medium"
-    case high = "High"
+enum DangerLevel: String {
+    case low
+    case medium
+    case high
 }
 
