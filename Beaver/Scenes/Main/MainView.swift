@@ -28,29 +28,40 @@ struct MainView: View {
         NavigationStack {
             ZStack{
                 Map(position: $cameraPosition) {
+                    Annotation("", coordinate: locationManager.currentLocation ?? .hico) {
+                        Image("current")
+                    }
+                    
                     ForEach(potHoleDataManager.hicoPotHoles, id: \.id) { pothole in
                         Annotation("", coordinate: pothole.coordinates) {
-                            Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)
-                                .resizable()
-                                .scaledToFit()
-                                .onTapGesture {
-                                    selectedPothole = pothole
-                                    showPotholeInfo = true
+                            PotholeAnnotationView(
+                                pothole: pothole,
+                                isSelected: pothole.id == selectedPothole?.id,
+                                showPotholeInfo: $showPotholeInfo,
+                                onTap: {
+                                    if selectedPothole?.id == pothole.id {
+                                        showPotholeInfo.toggle()
+                                    } else {
+                                        selectedPothole = pothole
+                                        showPotholeInfo = true
+                                    }
                                 }
+                            )
                         }
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
                 if warningManager.showAlert{
                     VStack{
+                        // > 300
                         if warningManager.distanceToPotHole <= 30 && warningManager.distanceToPotHole > 20{
-                            Image("alert300")
+                            Image("alert300") //star
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width:361)
                                 .padding(.top, 28)
                         }else if warningManager.distanceToPotHole <= 20 && warningManager.distanceToPotHole > 10{
-                            Image("alert100")
+                            Image("alert100") //star
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width:361)
@@ -155,5 +166,19 @@ extension MainView{
                 }.padding(.trailing, 24)
             }
         }
+    }
+}
+
+struct PotholeAnnotationView: View {
+    let pothole: PotholeData
+    let isSelected: Bool
+    @Binding var showPotholeInfo: Bool
+    let onTap: () -> Void
+    
+    var body: some View {
+        Image(isSelected && showPotholeInfo
+              ? "big_\(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)"
+              : "small_\(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)")
+        .onTapGesture(perform: onTap)
     }
 }
