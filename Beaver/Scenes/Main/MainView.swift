@@ -70,14 +70,14 @@ struct MainView: View {
                                 .padding(.top, 28)
                         }else if warningManager.distanceToPotHole <= 20 && warningManager.distanceToPotHole > 10{
                             ZStack(alignment: .top) {
-                                Image("alert100_red")
+                                Image("redright")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width:361)
                                     .padding(.top, 28)
                                     .opacity(isShowingImageA ? 1 : 0)
                                 
-                                Image("alert100")
+                                Image("redoff")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width:361)
