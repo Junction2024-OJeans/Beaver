@@ -10,6 +10,7 @@ import MapKit
 
 struct ReportView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var locationManager = LocationManager()
     @State private var centerCoordinate: CLLocationCoordinate2D = .init()
     @State private var position: MapCameraPosition
     @State private var showingReportSheet = false
@@ -21,24 +22,36 @@ struct ReportView: View {
     @Binding var coordinates: Coordinates?
     
     init(coordinates: Binding<Coordinates?>) {
+        self._coordinates = coordinates
+        self._dangerLevel = State(initialValue: .low)
+        
         if let coordinates = coordinates.wrappedValue {
-            self.position = .camera(.init(centerCoordinate: .init(coordinates), distance: 1000))
+            self._position = State(initialValue: .camera(.init(centerCoordinate: .init(coordinates), distance: 1000)))
         } else {
             let rect = MKMapRect(origin: .init(.hico), size: .init(width: 2000, height: 2000))
             let region = MKCoordinateRegion(rect)
-            self.position = .region(region)
+            self._position = State(initialValue: .region(region))
         }
-        
-        self._coordinates = coordinates
-        self._dangerLevel = State(initialValue: .low)
     }
     
     var body: some View {
         ZStack {
-            Map(position: $position)
-                .onMapCameraChange { context in
-                    centerCoordinate = context.camera.centerCoordinate
+            if let userLocation = locationManager.currentLocation {
+                Map(coordinateRegion: .constant(MKCoordinateRegion(
+                    center: userLocation,
+                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                )))
+                .onAppear {
+                    centerCoordinate = userLocation
                 }
+                .onChange(of: locationManager.currentLocation) { newLocation in
+                    if let newLocation = newLocation {
+                        centerCoordinate = newLocation
+                    }
+                }
+            } else {
+                Text("Loading location...")
+            }
             
             Image(systemName: "mappin.and.ellipse")
                 .resizable()
@@ -57,6 +70,7 @@ struct ReportView: View {
         }
         .onAppear {
             showingReportSheet = true
+            locationManager.getLocationPermission()
         }
         .sheet(isPresented: $showingReportSheet) {
             bottomSmallSheet
