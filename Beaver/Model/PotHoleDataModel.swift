@@ -21,8 +21,8 @@ struct PotholeData: Identifiable {
 }
 
 enum DangerLevel: String, CaseIterable, Codable {
-    case low = "Dangerous"
-    case medium = "Caution"
-    case high = "Relax"
+    case low = "Low"
+    case medium = "Medium"
+    case high = "High"
 }
 

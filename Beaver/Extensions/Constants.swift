@@ -10,9 +10,9 @@ import MapKit
 
 extension CLLocationCoordinate2D {
     
-    static let postech = CLLocationCoordinate2D(
-        latitude: 36.015501,
-        longitude: 129.322548
+    static let hico = CLLocationCoordinate2D(
+        latitude: 35.83826064721534,
+        longitude: 129.28788538371916
     )
     
 }
@@ -20,7 +20,7 @@ extension CLLocationCoordinate2D {
 extension MKCoordinateRegion {
     
     static let cameraBoundary = MKCoordinateRegion(
-        center: .postech,
+        center: .hico,
         latitudinalMeters: 4000,
         longitudinalMeters: 4000
     )
@@ -29,6 +29,6 @@ extension MKCoordinateRegion {
 
 extension MapCameraPosition {
     
-    static let defaultPosition: Self = .camera(.init(centerCoordinate: .postech, distance: 1500))
+    static let defaultPosition: Self = .camera(.init(centerCoordinate: .hico, distance: 1500))
     
 }

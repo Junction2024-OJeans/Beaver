@@ -180,11 +180,6 @@ extension CLLocationCoordinate2D {
             longitude: coordinates.longitude
         )
     }
-    
-    static let hico = CLLocationCoordinate2D(
-        latitude: 35.83862279759551,
-        longitude: 129.2879123861327
-    )
 }
 
 

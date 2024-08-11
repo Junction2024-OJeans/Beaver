@@ -15,6 +15,7 @@
 		6BA06E392C67E5B600C6C281 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 6BA06E382C67E5B600C6C281 /* SwiftCSV */; };
 		6BA06E3B2C67E5D800C6C281 /* PotHoleDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA06E3A2C67E5D800C6C281 /* PotHoleDataManager.swift */; };
 		6BA06E3E2C67E67400C6C281 /* PohangPotholeData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6BA06E3D2C67E67400C6C281 /* PohangPotholeData.csv */; };
+		6BC851122C6828D500332427 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC851112C6828D500332427 /* AlertView.swift */; };
 		8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */; };
 		8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383ACC2C67BED600CEEE6F /* ContentView.swift */; };
 		8D383ACF2C67BED800CEEE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D383ACE2C67BED800CEEE6F /* Assets.xcassets */; };
@@ -31,6 +32,9 @@
 		8D383B002C67DC9A00CEEE6F /* FirebaseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */; };
 		8D51F8E32C6812F600FDB7C8 /* ReportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51F8E22C6812F600FDB7C8 /* ReportInfo.swift */; };
 		8D51F8E52C6828B000FDB7C8 /* ReportCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D51F8E42C6828B000FDB7C8 /* ReportCompleteView.swift */; };
+		B50058E52C6811850042D7EE /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50058E32C6811850042D7EE /* ToggleButton.swift */; };
+		B50058E62C6811850042D7EE /* PotholeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50058E42C6811850042D7EE /* PotholeInfoView.swift */; };
+		B5203DE12C681FC10032512E /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5203DE02C681FC10032512E /* SearchBarView.swift */; };
 		B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A392C67CBA40078C73D /* DataManager.swift */; };
 		B5254A3E2C67E3570078C73D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5254A3D2C67E3570078C73D /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,7 @@
 		6BA06E342C67E25000C6C281 /* potholeAlert100.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = potholeAlert100.mp3; sourceTree = "<group>"; };
 		6BA06E3A2C67E5D800C6C281 /* PotHoleDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotHoleDataManager.swift; sourceTree = "<group>"; };
 		6BA06E3D2C67E67400C6C281 /* PohangPotholeData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PohangPotholeData.csv; sourceTree = "<group>"; };
+		6BC851112C6828D500332427 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		8D383AC72C67BED600CEEE6F /* Beaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D383ACA2C67BED600CEEE6F /* BeaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaverApp.swift; sourceTree = "<group>"; };
 		8D383ACC2C67BED600CEEE6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +64,9 @@
 		8D383AFF2C67DC9A00CEEE6F /* FirebaseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataManager.swift; sourceTree = "<group>"; };
 		8D51F8E22C6812F600FDB7C8 /* ReportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInfo.swift; sourceTree = "<group>"; };
 		8D51F8E42C6828B000FDB7C8 /* ReportCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCompleteView.swift; sourceTree = "<group>"; };
+		B50058E32C6811850042D7EE /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		B50058E42C6811850042D7EE /* PotholeInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotholeInfoView.swift; sourceTree = "<group>"; };
+		B5203DE02C681FC10032512E /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarView.swift; path = ../../../../../Downloads/SearchBarView.swift; sourceTree = "<group>"; };
 		B5254A392C67CBA40078C73D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B5254A3D2C67E3570078C73D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,7 +186,11 @@
 		8D383AE72C67C7B700CEEE6F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B5203DE02C681FC10032512E /* SearchBarView.swift */,
 				8D383AE92C67C7EE00CEEE6F /* MainView.swift */,
+				B50058E42C6811850042D7EE /* PotholeInfoView.swift */,
+				B50058E32C6811850042D7EE /* ToggleButton.swift */,
+				6BC851112C6828D500332427 /* AlertView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -287,6 +299,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50058E62C6811850042D7EE /* PotholeInfoView.swift in Sources */,
+				6BC851122C6828D500332427 /* AlertView.swift in Sources */,
 				6B78217F2C67D502000BA289 /* CLLocationCoordinate2D+.swift in Sources */,
 				8D51F8E32C6812F600FDB7C8 /* ReportInfo.swift in Sources */,
 				8D383ACD2C67BED600CEEE6F /* ContentView.swift in Sources */,
@@ -297,8 +311,10 @@
 				8D383AE62C67C05C00CEEE6F /* PotHoleDataModel.swift in Sources */,
 				8D383AE02C67C00900CEEE6F /* View+.swift in Sources */,
 				8D383ACB2C67BED600CEEE6F /* BeaverApp.swift in Sources */,
+				B5203DE12C681FC10032512E /* SearchBarView.swift in Sources */,
 				8D383B002C67DC9A00CEEE6F /* FirebaseDataManager.swift in Sources */,
 				8D383AE42C67C03D00CEEE6F /* BeaverModel.swift in Sources */,
+				B50058E52C6811850042D7EE /* ToggleButton.swift in Sources */,
 				B5254A3A2C67CBA40078C73D /* DataManager.swift in Sources */,
 				8D383AE22C67C01900CEEE6F /* Date+.swift in Sources */,
 				8D51F8E52C6828B000FDB7C8 /* ReportCompleteView.swift in Sources */,
@@ -470,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Beaver/Preview Content\"";
-				DEVELOPMENT_TEAM = 888VRTGCXU;
+				DEVELOPMENT_TEAM = LLTXZL34C3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Beaver/Info.plist;
