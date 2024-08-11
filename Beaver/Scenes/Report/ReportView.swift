@@ -20,9 +20,11 @@ struct ReportView: View {
     @State private var dangerLevel: DangerLevel
     @State private var navigateToCompleteView: Bool = false
     @Binding var coordinates: Coordinates?
+    @Binding var shouldPopToRootView: Bool
     
-    init(coordinates: Binding<Coordinates?>) {
+    init(coordinates: Binding<Coordinates?>, shouldPopToRootView: Binding<Bool>) {
         self._coordinates = coordinates
+        self._shouldPopToRootView = shouldPopToRootView
         self._dangerLevel = State(initialValue: .low)
         
         if let coordinates = coordinates.wrappedValue {
@@ -53,19 +55,24 @@ struct ReportView: View {
                 Text("Loading location...")
             }
             
-            Image(systemName: "mappin.and.ellipse")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50)
+            Image("character_pin")
         }
         .navigationTitle(Text("Report potholes"))
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $navigateToCompleteView) {
-            ReportCompleteView()
+            ReportCompleteView(shouldPopToRootView: $shouldPopToRootView)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Image(systemName: "chevron.left")
+                Button(action: {
+                    shouldPopToRootView = true
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.gray8)
+                    }
+                }
             }
         }
         .onAppear {
@@ -81,13 +88,13 @@ struct ReportView: View {
         let selectedLevel: DangerLevel
         switch selectedDangerLevel {
         case 0:
-            selectedLevel = .low
+            selectedLevel = .high
         case 1:
             selectedLevel = .medium
         case 2:
-            selectedLevel = .high
-        default:
             selectedLevel = .low
+        default:
+            selectedLevel = .high
         }
         
         let reportInfo = ReportInfo(
@@ -116,19 +123,36 @@ struct TinyDetent: CustomPresentationDetent {
 
 private extension ReportView {
     var bottomSmallSheet: some View {
-        VStack(alignment: .leading) {
-            Text("Perceived Risk of Pothole")
-                .padding(.vertical, 15)
-                .bold()
-            
-            Picker("Danger Level", selection: $selectedDangerLevel) {
-                Text("\(DangerLevel.low)").tag(0)
-                Text("\(DangerLevel.medium)").tag(1)
-                Text("\(DangerLevel.high)").tag(2)
+        VStack {
+            VStack(alignment: .leading) {
+                Text("Perceived Risk of Pothole")
+                    .bold()
+                    .padding(.vertical, 10)
+                
+                HStack {
+                    Button {
+                        selectedDangerLevel = 0
+                    } label: {
+                        Image(selectedDangerLevel == 0 ? "high_button" :
+                                "high_button_gray" )
+                    }
+                    
+                    Button {
+                        selectedDangerLevel = 1
+                    } label: {
+                        Image(selectedDangerLevel == 1 ? "medium_button" :
+                                "medium_button_gray" )
+                    }
+                    
+                    Button {
+                        selectedDangerLevel = 2
+                    } label: {
+                        Image(selectedDangerLevel == 2 ? "low_button" :
+                                "low_button_gray" )
+                    }
+                }
             }
-            .pickerStyle(.segmented)
-            
-            Spacer()
+            .padding(.bottom, 20)
             
             Button(action: {
                 coordinates = .init(
@@ -139,17 +163,15 @@ private extension ReportView {
                 saveDangerLevel()
                 
                 navigateToCompleteView = true
+                
+                showingReportSheet = false
             }) {
                 HStack {
                     Spacer()
-                    Text("Submit")
+                    Image("submit_button")
                     Spacer()
                 }
             }
-            .foregroundColor(.white)
-            .padding(10)
-            .background(Color.accentColor)
-            .cornerRadius(8)
             .alert(isPresented: $showingAlert) {
                 Alert(title: Text("Form submitted!"),
                       message: Text("Try another thing"),
@@ -184,5 +206,5 @@ extension CLLocationCoordinate2D {
 
 
 #Preview {
-    ReportView(coordinates: .constant(Coordinates(latitude: 0, longitude: 0)))
+    ReportView(coordinates: .constant(Coordinates(latitude: 0, longitude: 0)), shouldPopToRootView: .constant(false))
 }
