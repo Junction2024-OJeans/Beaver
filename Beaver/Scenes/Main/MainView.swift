@@ -24,10 +24,17 @@ struct MainView: View {
     @State private var searchText = ""
     @State var coordinates: Coordinates?
     
+    @State private var isShowingImageA = true
+
+    
     var body: some View {
         NavigationStack {
             ZStack{
                 Map(position: $cameraPosition) {
+                    Annotation("", coordinate: locationManager.currentLocation ?? .hico) {
+                        Image("current")
+                    }
+                    
                     ForEach(potHoleDataManager.hicoPotHoles, id: \.id) { pothole in
                         Annotation("", coordinate: pothole.coordinates) {
                             Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)
@@ -43,18 +50,39 @@ struct MainView: View {
                 .edgesIgnoringSafeArea(.all)
                 if warningManager.showAlert{
                     VStack{
-                        if warningManager.distanceToPotHole <= 30 && warningManager.distanceToPotHole > 20{
+                        if warningManager.distanceToPotHole > 30 {
+                            Image("alert_before")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:361)
+                                .padding(.top, 28)
+                        }else if warningManager.distanceToPotHole <= 30 && warningManager.distanceToPotHole > 20{
                             Image("alert300")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width:361)
                                 .padding(.top, 28)
                         }else if warningManager.distanceToPotHole <= 20 && warningManager.distanceToPotHole > 10{
-                            Image("alert100")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width:361)
-                                .padding(.top, 28)
+                            ZStack(alignment: .top) {
+                                Image("alert100_red")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width:361)
+                                    .padding(.top, 28)
+                                    .opacity(isShowingImageA ? 1 : 0)
+                                
+                                Image("alert100")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width:361)
+                                    .padding(.top, 28)
+                                    .opacity(isShowingImageA ? 0 : 1)
+                            }
+                            .onAppear {
+                                withAnimation(Animation.easeOut(duration: 0.5).repeatForever(autoreverses: true)) {
+                                    isShowingImageA.toggle()
+                                }
+                            }
                         }
                         Spacer()
                         Button{
