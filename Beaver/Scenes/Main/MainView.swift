@@ -37,13 +37,19 @@ struct MainView: View {
                     
                     ForEach(potHoleDataManager.hicoPotHoles, id: \.id) { pothole in
                         Annotation("", coordinate: pothole.coordinates) {
-                            Image(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)
-                                .resizable()
-                                .scaledToFit()
-                                .onTapGesture {
-                                    selectedPothole = pothole
-                                    showPotholeInfo = true
+                            PotholeAnnotationView(
+                                pothole: pothole,
+                                isSelected: pothole.id == selectedPothole?.id,
+                                showPotholeInfo: $showPotholeInfo,
+                                onTap: {
+                                    if selectedPothole?.id == pothole.id {
+                                        showPotholeInfo.toggle()
+                                    } else {
+                                        selectedPothole = pothole
+                                        showPotholeInfo = true
+                                    }
                                 }
+                            )
                         }
                     }
                 }
@@ -183,5 +189,19 @@ extension MainView{
                 }.padding(.trailing, 24)
             }
         }
+    }
+}
+
+struct PotholeAnnotationView: View {
+    let pothole: PotholeData
+    let isSelected: Bool
+    @Binding var showPotholeInfo: Bool
+    let onTap: () -> Void
+    
+    var body: some View {
+        Image(isSelected && showPotholeInfo
+              ? "big_\(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)"
+              : "small_\(pothole.averageDangerLevel?.rawValue ?? DangerLevel.high.rawValue)")
+        .onTapGesture(perform: onTap)
     }
 }
