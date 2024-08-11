@@ -23,12 +23,13 @@ struct MainView: View {
     @State private var showPotholeInfo = false
     @State private var searchText = ""
     @State var coordinates: Coordinates?
-    
+    @State private var shouldPopToRootView = false
     @State private var isShowingImageA = true
-
+    @State private var navigationPath = NavigationPath()
+    
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationPath) {
             ZStack{
                 Map(position: $cameraPosition) {
                     Annotation("", coordinate: locationManager.currentLocation ?? .hico) {
@@ -117,9 +118,9 @@ struct MainView: View {
                 }
             }
             .toolbar(.hidden)
-            .navigationDestination(for: String.self){ destination in
-                if destination == "report"{
-                    ReportView(coordinates: $coordinates)
+            .navigationDestination(for: String.self) { destination in
+                if destination == "report" {
+                    ReportView(coordinates: $coordinates, shouldPopToRootView: $shouldPopToRootView)
                 }
             }
             .onAppear {
@@ -150,6 +151,12 @@ struct MainView: View {
                             }
                         }
                     }
+                }
+            }
+            .onChange(of: shouldPopToRootView) { newValue in
+                if newValue {
+                    navigationPath = NavigationPath()
+                    shouldPopToRootView = false
                 }
             }
         }
