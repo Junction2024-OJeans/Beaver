@@ -121,7 +121,7 @@ private extension ReportView {
                 .padding(.vertical, 15)
                 .bold()
             
-            Picker("위험 수준", selection: $selectedDangerLevel) {
+            Picker("Danger Level", selection: $selectedDangerLevel) {
                 Text("\(DangerLevel.low)").tag(0)
                 Text("\(DangerLevel.medium)").tag(1)
                 Text("\(DangerLevel.high)").tag(2)
